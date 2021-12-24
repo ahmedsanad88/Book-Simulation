@@ -9,7 +9,10 @@ next.addEventListener('click', () => {
     if(newIndex === 0) {
         pages[0].classList.add('nextPage');
         // Adding the wave to the front face of the pages when going forwards.
-        pages[0].lastElementChild.classList.add('wave');
+        // pages[0].lastElementChild.classList.add('wave');
+        let nodes = pages[0].children;
+        nodes[0].classList.add('wave');
+
         setTimeout(() => {
             pages[0].style.zIndex = counter;
         }, 1000)
@@ -17,9 +20,12 @@ next.addEventListener('click', () => {
         // console.log("newIndex got it here", newIndex);
         counter++;
         pages[newIndex].classList.add('nextPage');
-        pages[newIndex].lastElementChild.classList.add('wave');
+        // pages[newIndex].lastElementChild.classList.add('wave');
+        let nodes = pages[newIndex].children;
+        nodes[0].classList.add('wave');
         setTimeout(() => {
             pages[newIndex].style.zIndex = counter;
+            nodes[0].classList.remove('wave');
         }, 1000)        
     }
 });
@@ -29,7 +35,7 @@ prev.addEventListener('click', () => {
     let newIndex = checkLastElement('nextPage');
     if(newIndex === 0) return;
     pages[newIndex - 1].classList.remove('nextPage');
-    pages[newIndex - 1].lastElementChild.classList.remove('wave');
+    // pages[newIndex - 1].lastElementChild.classList.remove('wave');
     // add the wave the backface of the pages when going back.
     let nodes = pages[newIndex - 1].children;
     nodes[1].classList.add('waveBack');
