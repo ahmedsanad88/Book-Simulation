@@ -15,7 +15,8 @@ next.addEventListener('click', () => {
 
         setTimeout(() => {
             pages[0].style.zIndex = counter;
-        }, 1000)
+            nodes[0].classList.remove('wave');
+        }, 1000);
     }else {
         // console.log("newIndex got it here", newIndex);
         counter++;
@@ -26,7 +27,7 @@ next.addEventListener('click', () => {
         setTimeout(() => {
             pages[newIndex].style.zIndex = counter;
             nodes[0].classList.remove('wave');
-        }, 1000)        
+        }, 1000);        
     }
 });
 
@@ -59,4 +60,4 @@ const checkLastElement = (clsName) => {
         }
     });
     return index;
-}
+};
